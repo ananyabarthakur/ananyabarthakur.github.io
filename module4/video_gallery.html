@@ -1,4 +1,4 @@
-html>
+<html>
   <head>
     <title>Your Page Title</title>
     <meta charset="UTF-8">
@@ -25,27 +25,38 @@ html>
 <!--  your visible page content below -->
    
    <h1> Video Gallery</h1>
-   <div class = "video">
+   <table>
+     <tr>
+   <td><div class = "video">
    <video width="320" height="240" controls>
   <source src="movie.mp4" type="video/mp4">
   Your browser does not support the video tag.
-</video>
-     
+     </video></td>
      </div>
   
-   <div class = "video">
+   <td><div class = "video">
    <video width="320" height="240" controls>
   <source src="movie.mp4" type="video/mp4"> 
   Your browser does not support the video tag.
      </video>
-     </div>
+     </div></td>
    
-   <div class = "video">
+  <td> <div class = "video">
    <video width="320" height="240" controls>
   <source src="movie.mp4" type="video/mp4">
   Your browser does not support the video tag.
-</video>
-     </div>
+    </video>
+    </div> </td>
+     
+     </tr>
+   
+   <tr>
+     <td> <div> <p>Video 1   </p> </div></td>
+     <td> <div> <p>Video 2  </p> </div></td>
+     <td> <div> <p>Video 3   </p> </div></td>
+     </tr>
+   
+   </table>
 Hello World!
 
  </body>
