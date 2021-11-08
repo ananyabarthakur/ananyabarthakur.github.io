@@ -48,15 +48,38 @@ border:2px solid black;
 
  <body>
 <div>
-  <form action = 'https://idesstage2.bc.edu/class/results.php'>
+  <form method = Post action = 'https://idesstage2.bc.edu/class/results.php'>
   <label for="fname">First name:</label><br>
   <input type="text" id="fname" name="fname"><br>
   <label for="lname">Last name:</label><br>
   <input type="text" id="lname" name="lname"><br>
    <label for="email">Email:</label><br>
   <input type="text" id="email" name="email"><br>
-     <label for="icecream">Favorite Ice Cream:</label><br>
-  <input type="text" id="icecream" name="icecream"><br>
+    
+    
+     <label for="fav_icecream">Favorite Ice Cream:</label><br>
+  <input type="radio" id="fav_icecream" name="fav_icecream" value="HTML">
+    
+  <label for="chocolate"> Chocolate </label><br>
+  <input type="radio" id="chocolate" name="fav_icecream" value="Chocolate">
+    
+  <label for="Vanilla">Vanilla</label><br>
+  <input type="radio" id="Vanilla" name="fav_icecream" value="Vanilla">
+  
+    <label for="Cookie">Cookies n creme</label><br>
+  <input type="radio" id="Cookies" name="fav_icecream" value="Cookies n creme">
+    
+    <label for="Strawberry">Strawberry</label><br>
+  <input type="radio" id="Strawberry" name="fav_icecream" value="Strawberry">
+    
+    <label for="Chocolate chip cookie dough">Chocolate chip cookie dough</label><br>
+  <input type="radio" id="Chocolate chip cookie dough" name="fav_icecream" value="Chocolate chip cookie dough">
+    
+    <label for="Matcha">Matcha</label><br>
+  <input type="radio" id="Matcha" name="fav_icecream" value="Matcha">
+    
+    
+    
       <label for="life">What do you want to do with your life:</label><br>
   <input type="text" id="life" name="life"><br>
     <input type="submit" value="Submit">
