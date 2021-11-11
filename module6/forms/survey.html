@@ -53,7 +53,7 @@ border:2px solid black;
  
 <div>
   <form method="post" action = "https://idesstage2.bc.edu/class/results.php">
-    <fieldset>
+    
     <!fname>
   <label for="fname">First name:</label><br>
   <input type="text" id="fname" name="fname"><br>
@@ -70,6 +70,7 @@ border:2px solid black;
     <label for="box1">What role does music play in your life?</label><br>
    <input type="text" id="box1" name="box1" maxlength="4" size="4" required><br> 
     
+    <fieldset>
     <! radio>
     <legend> How often do you purchase new music? </legend> <br> 
     <input type="radio" id="weekly" name="music_purchases" value="weekly">
@@ -78,7 +79,7 @@ border:2px solid black;
   <label for="daily">daily</label><br>
   <input type="radio" id="monthly" name="music_purchases" value="monthly">
   <label for="monthlyt">monthly</label><br>
-    
+ 
     <! checklist>
     <legend> What type of music do you like (Select all that apply!) <legend> <br> 
     <input type="checkbox" id="classical" name="musictype" value="classical">
@@ -104,7 +105,7 @@ border:2px solid black;
  
   <!submit button> 
    <input type="submit" value="Submit">
-    <fieldset>
+    </fieldset>
 </form>
    </div> 
 
