@@ -23,7 +23,7 @@
     
     <!fname>
   <label for="fname">First name:</label><br>
-  <input type="text" id="fname" name="fname"><br>
+  <input type="text" id="fname" name="fname" required><br>
     
     <!lname>
   <label for="lname">Last name:</label><br>
@@ -82,30 +82,33 @@
   
   <script>
     
-   function GetCookieName() {
-   let x = document.forms["myForm"]["fname"].value;
-   if (x == "") {
-    alert("Name must be filled out");
-    return false;
-       }
-     return x
+   function SetCookie() {
+   firstname = document.forms["myForm"]["fname"].value;
+   document.cookie = cname + "=" + firstname
+  
    }
-   function setCookie(GetCookieName()) {
-  const d = new Date();
-  d.setTime(d.getTime() + (exdays*24*60*60*1000));
-  let expires = "expires="+ d.toUTCString();
-  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+ 
 }
-function checkCookie() {
-  let username = GetCookieName();
-  if (username != "") {
-   alert("Welcome again " + username);
-  } else {
-    username = prompt("Please enter your name:", "");
-    if (username != "" && username != null) {
-      setCookie("username", username, 365);
+function getCookie(cname) {
+  let name = cname + "=";
+  let ca = document.cookie.split(';');
+  for(let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
     }
   }
+  return "";
+}
+
+function checkCookie() {
+  let user = getCookie("username");
+  if (user != "") {
+    alert("Welcome again " + user);
+  } 
 }
      
   </script>
