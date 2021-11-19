@@ -4,11 +4,9 @@
 <script>
  
  
-function setCookie(cname,cvalue,exdays) {
-  const d = new Date();
-  d.setTime(d.getTime() + (exdays*24*60*60*1000));
-  let expires = "expires=" + d.toGMTString();
-  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+function setCookie(cname = "username") {
+  cvalue = document.forms["myForm"]["fname"].value;
+  document.cookie = cname + "=" + cvalue + ";" ;
 }
 
 function getCookie(cname) {
@@ -31,10 +29,7 @@ function checkCookie() {
   let user = getCookie("username");
   if (user != "") {
     alert("Welcome again " + user);
-  } else {
-     user = document.forms["myForm"]["fname"].value;
-       setCookie("username", user, 30);
-     }
+  } 
   }
 }
 </script>
@@ -44,7 +39,7 @@ function checkCookie() {
   <h1> Javascript CookieExample</h1>
    
    <div>
-  <form name = "myForm" onsubmit="return getCookie("username")"  method="post" action = "https://idesstage2.bc.edu/class/results.php">
+  <form name = "myForm" onsubmit="return setCookie()"  method="post" action = "https://idesstage2.bc.edu/class/results.php">
     
     <!fname>
   <label for="fname">First name:</label><br>
