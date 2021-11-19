@@ -26,6 +26,7 @@
     <!fname>
   <label for="fname">First name:</label><br>
   <input type="text" id="fname" name="fname" required><br>
+   
     
     <!lname>
   <label for="lname">Last name:</label><br>
@@ -84,30 +85,16 @@
   
   <script>
     
-   function SetCookie() {
-   firstname = document.forms["myForm"]["fname"].value;
-   document.cookie = cname + "=" + firstname
-  
-   }
- 
-}
-function getCookie(cname) {
-  let name = cname + "=";
-  let ca = document.cookie.split(';');
-  for(let i = 0; i < ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
+   function GetCookie() {
+   user = document.forms["myForm"]["fname"].value;
+   document.cookie = username + "=" + user + ";" 
+   return user
   }
-  return "";
-}
+ 
 
 function checkCookie() {
-  let user = getCookie("username");
+   
+  let user = GetCookie("username");
   if (user != "") {
     alert("Welcome again " + user);
   } 
