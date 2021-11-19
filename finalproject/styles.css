@@ -1,0 +1,19 @@
+#navbox {
+          float: left;
+          width: 100%;
+          background-color: #000000;
+          font-color: white;
+          font:   bold Georgia, serif;
+          font-size: 1em;
+          padding: 10px ;
+          border: 1px solid black ;
+        }
+      #headerbox {
+          background-color: #000000 ;
+          padding: 30px ;
+          border: 1px solid black ;
+        }
+      h1{font-size: 2.5em;
+        color: white;
+        text-align: center;
+      }
