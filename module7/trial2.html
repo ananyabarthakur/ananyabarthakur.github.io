@@ -2,6 +2,8 @@
 <html>
 <head>
 <script>
+ 
+ 
 function setCookie(cname,cvalue,exdays) {
   const d = new Date();
   d.setTime(d.getTime() + (exdays*24*60*60*1000));
@@ -42,7 +44,7 @@ function checkCookie() {
   <h1> Javascript CookieExample</h1>
    
    <div>
-  <form name = "myForm" method="post" action = "https://idesstage2.bc.edu/class/results.php">
+  <form name = "myForm" onsubmit="return getCookie("username")"  method="post" action = "https://idesstage2.bc.edu/class/results.php">
     
     <!fname>
   <label for="fname">First name:</label><br>
