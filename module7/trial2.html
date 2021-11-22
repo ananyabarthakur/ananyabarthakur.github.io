@@ -26,15 +26,10 @@ function getCookie(cname) {
 }
 
 function checkCookie() {
-  let user = setCookie("username");
-  if (user != "") {
-    alert("Welcome again " + user);
-  } 
- else {
-    alert("Welcome again " + user);
-  } 
+  alert("Welcome again " + user);
+
   }
-}
+
 </script>
 </head>
 
@@ -42,7 +37,7 @@ function checkCookie() {
   <h1> Javascript CookieExample</h1>
    
    <div>
-  <form name = "myForm" onsubmit="return checkCookie()"  method="post" action = "https://idesstage2.bc.edu/class/results.php">
+  <form name = "myForm" onsubmit="setCookie()"  method="post" action = "https://idesstage2.bc.edu/class/results.php">
     
     <!fname>
   <label for="fname">First name:</label><br>
