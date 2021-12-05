@@ -75,6 +75,10 @@
   color: #FFFFFF;
   background-color: #00A4BD;
 }
+      img {
+            display:none;
+            width:100%;
+          }
       
 
     </style>
@@ -97,7 +101,14 @@
      </div></nav>
 
    
-   <div > <img id = "mainpic" src="images/community.jpg" alt="community" height="60%"> </div>
+   
+     <div>
+  <img src="ocean.jpg">
+  <img src="golf.jpg">
+  <img src="clouds.jpg">
+  <img src="bc.jpg">
+  <img src="sloth.jpg">
+  </div>
    
      
      <footer>
@@ -106,4 +117,27 @@
   </footer>
 
  </body>
+   
+   <script>
+    const images = document.querySelectorAll("img"); 
+
+    let i = 0;
+    
+    setInterval(function(){ 
+
+  if(i == 0) {
+    images[i].style.display = 'block';
+  } else if(i == images.length ) {
+    images[i - 1].style.display = 'none';
+    images[0].style.display = 'block';
+    i = 0;
+  } else {
+    images[i - 1].style.display = 'none';
+    images[i].style.display = 'block';
+  }
+  
+ i++;
+ 
+}, 2000);
+  </script>
 </html>
