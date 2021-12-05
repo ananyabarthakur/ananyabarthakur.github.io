@@ -34,9 +34,68 @@
 
    
    
-   <div> <img id = "mainpic" src="images/black.png" alt="background2"> 
-     <div> <h2> ABOUT US </h2> </div>
-     </div>
+   <div>
+  <form method="post" action = "https://idesstage2.bc.edu/class/results.php">
+    
+    <!fname>
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" name="fname"><br>
+    
+    <!lname>
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lname"><br>
+    
+    <!email>
+   <label for="email">Email:</label><br>
+  <input type="text" id="email" name="email" required><br>
+  
+    <!input w spec. width>
+    <label for="box1">What role does music play in your life?</label><br>
+    <textarea rows="3" type="text" id="box1" name="box1" maxlength="60" > </textarea><br> 
+    
+    
+    <fieldset>
+    <! radio>
+    <legend> How often do you purchase new music? </legend> <br> 
+    <input type="radio" id="weekly" name="music_purchases" value="weekly">
+  <label for="weekly">weekly</label><br>
+  <input type="radio" id="daily" name="music_purchases" value="daily">
+  <label for="daily">daily</label><br>
+  <input type="radio" id="monthly" name="music_purchases" value="monthly">
+  <label for="monthly">monthly</label><br>
+ </fieldset>
+    
+    <fieldset>
+    <! checklist>
+    <legend> What type of music do you like (Select all that apply!) </legend> <br> 
+    <input type="checkbox" id="classical" name="musictype" value="classical">
+  <label for="classical"> classical</label><br>
+  <input type="checkbox" id="pop" name="musictype" value="pop">
+  <label for="pop"> pop </label><br>
+  <input type="checkbox" id="alternative" name="musictype" value="alternative">
+  <label for="alternative"> alternative</label><br>
+   <input type="checkbox" id="Rap" name="musictype" value="Rap">
+  <label for="Rap"> Rap</label> <br>
+      </fieldset>
+    
+    
+    <! select list>
+     Favorite Music Award Event to watch? <br> 
+    
+ <select id="award" name="award">
+   <option value="MTV">MTV</option>
+  <option value="People's Choice">People's Choice</option>
+  <option value="Grammy">Grammy</option>
+  <option value="Billboard Music">Billboard Music</option>
+    </select><br>
+
+ 
+  <!submit button> 
+   <input type="submit" value="Submit">
+    
+</form>
+   </div> 
+
 
  </body>
 </html>
