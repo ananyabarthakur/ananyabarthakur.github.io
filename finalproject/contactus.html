@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="stylesheet.css">
     
     <style>
+      
     </style>
  </head>
 
@@ -40,21 +41,27 @@
    <div>
   <form method="post" action = "https://idesstage2.bc.edu/class/results.php">
     
-    <!fname>
-  <label for="fname">First name:</label><br>
-  <input type="text" id="fname" name="fname"><br>
+    <! select list>
+     Type of Organization <br> 
     
-    <!lname>
-  <label for="lname">Last name:</label><br>
-  <input type="text" id="lname" name="lname"><br>
+ <select id="award" name="award">
+   <option value="Community">Community</option>
+  <option value="Institution">Institution</option>
+  <option value="Other">Other</option>
+    </select><br>
+    
+    <!fname>
+  <label for="fname">Name </label><br>
+  <input type="text" id="name" name="name"><br>
+    
     
     <!email>
    <label for="email">Email:</label><br>
   <input type="text" id="email" name="email" required><br>
   
     <!input w spec. width>
-    <label for="box1">What role does music play in your life?</label><br>
-    <textarea rows="3" type="text" id="box1" name="box1" maxlength="60" > </textarea><br> 
+    <label for="box1">Please tell us more</label><br>
+    <textarea rows="4" type="text" id="box1" name="box1" maxlength="60" > </textarea><br> 
     
     
     <fieldset>
@@ -82,15 +89,7 @@
       </fieldset>
     
     
-    <! select list>
-     Favorite Music Award Event to watch? <br> 
-    
- <select id="award" name="award">
-   <option value="MTV">MTV</option>
-  <option value="People's Choice">People's Choice</option>
-  <option value="Grammy">Grammy</option>
-  <option value="Billboard Music">Billboard Music</option>
-    </select><br>
+  
 
  
   <!submit button> 
