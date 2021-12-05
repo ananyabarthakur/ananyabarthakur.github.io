@@ -160,3 +160,9 @@
       h2{ color:white;
       text-align: center;
       font-size:1em;}
+footer {
+  text-align: center;
+  padding: 3px;
+  background-color: white;
+  color: solid black;
+}
