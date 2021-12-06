@@ -13,7 +13,14 @@
     
     <style>
       #element {
-       padding: 20px; 
+       padding: 25px; 
+      }
+      
+      #form {
+        text-align:center;
+      }
+      #button {
+       width: 100%; 
       }
     </style>
  </head>
@@ -40,7 +47,7 @@
 
    
    
-   <div>
+   <div id="form">
   <form method="post" action = "https://idesstage2.bc.edu/class/results.php">
     <div id="element">
     <! select list>
@@ -76,7 +83,7 @@
 
  
   <!submit button> 
-     <button type="button" id="Button2" onclick="alert(Thanks())"><input type="submit" value="Submit"></button>
+     <div id="button"><button type="button" id="Button2" onclick="alert(Thanks())"><input type="submit" value="Submit"></button></div>
     
 </form>
    </div> 
