@@ -12,7 +12,37 @@
     <link rel="stylesheet" href="stylesheet.css">
 
     <style>
-        
+        /* Container needed to position the button. Adjust the width as needed */
+.container {
+  position: relative;
+  width: 50%;
+}
+
+/* Make the image responsive */
+.container img {
+  width: 100%;
+  height: auto;
+}
+
+/* Style the button and place it in the middle of the container/image */
+.container .btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.container .btn:hover {
+  background-color: black;
+}
       #slideshow {
             display:none;
             width:100%;
@@ -52,7 +82,11 @@
    
    
      <div>
-  <img id="slideshow" src="images/community1.jpg">
+        <div class="container">
+        <img id="slideshow" src="images/community1.jpg">
+          <button class="btn">Button</button>
+          </div>
+  
   <img id="slideshow" src="images/community2.jpg">
   <img id="slideshow" src="images/communtiy3.jpg">
   <img id="slideshow" src="images/community4.jpg">
