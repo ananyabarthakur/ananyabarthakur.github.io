@@ -12,7 +12,9 @@
     <link rel="stylesheet" href="stylesheet.css">
     
     <style>
-      
+      #element {
+       padding: 20px; 
+      }
     </style>
  </head>
 
@@ -40,7 +42,7 @@
    
    <div>
   <form method="post" action = "https://idesstage2.bc.edu/class/results.php">
-    
+    <div id="element">
     <! select list>
      Type of Organization <br> 
     
@@ -48,20 +50,23 @@
    <option value="Community">Community</option>
   <option value="Institution">Institution</option>
   <option value="Other">Other</option>
-    </select><br>
+      </select><br> </div>
     
     <!fname>
+    <div id="element">
   <label for="fname">Name </label><br>
-  <input type="text" id="name" name="name" required><br>
+      <input type="text" id="name" name="name" required><br></div>
     
     
     <!email>
+    <div id="element">
    <label for="email">Email:</label><br>
-  <input type="text" id="email" name="email" required><br>
+  <input type="text" id="email" name="email" required><br> </div>
   
     <!input w spec. width>
+      <div id="element">
     <label for="box1">Please tell us more</label><br>
-    <textarea rows="4" type="text" id="box1" name="box1" maxlength="60" > </textarea><br> 
+        <textarea rows="4" type="text" id="box1" name="box1" maxlength="60" > </textarea><br> </div>
     
     
    
