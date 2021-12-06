@@ -36,6 +36,9 @@
      nav  a:visited {
     color: white;
     }
+   a:visited {
+    color: white;
+    }
 
     nav a:hover {
         background-color: white;
