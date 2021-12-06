@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>mycommunity</title>
+    <meta charset="UTF-8">
+   <meta name="description" content="Community funding">
+   <meta name="keywords" content="Community, funding, local, support">
+   <meta name="author" content="Ananya Barthakur">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+    <link rel="stylesheet" href="stylesheet.css">
+    
+    <style>
+      #element {
+       padding: 25px; 
+      }
+      
+      #form {
+        text-align:center;
+      }
+      #button {
+       width: 100%; 
+      }
+    </style>
+ </head>
+
+ <body>
+   <! div1 = header>
+   <div id = "headerbox"> <img src="web_logo.png" alt="logo" width="70px" height="70px"> <a href="https://ananyabarthakur.github.io/finalproject"><h1> My Community</h1> </a></div>
+   
+   <! div2 = navigation>
+    
+   <nav> <div id="navbox">  <a href="https://ananyabarthakur.github.io/finalproject/about.html">About</a> 
+   <a href="https://ananyabarthakur.github.io/finalproject/impact.html">Impact</a>
+         <! div dropdown menu>
+        <div class="dropdown">
+        <button>Find Your Community</button>
+        <div class="dropdown-content">
+        <a href="https://ananyabarthakur.github.io/finalproject/community.html">Community</a>
+        <a href="https://ananyabarthakur.github.io/finalproject/institution.html">Institution</a>
+          </div> 
+     </div>
+          <span style="display:inline-block; width: 1000px;"></span>
+         <a href="https://ananyabarthakur.github.io/finalproject/contactus.html"> Contact Us </a>
+     </div></nav>
+
+   
+   
+   <div id="form">
+  <form method="post" action = "https://idesstage2.bc.edu/class/results.php">
+
+    
+    <!fname>
+    <div id="element">
+  <label for="fname">Name </label><br>
+      <input type="text" id="name" name="name" required><br></div>
+    
+    
+    <!email>
+    <div id="element">
+   <label for="email">Email:</label><br>
+  <input type="text" id="email" name="email" required><br> </div>
+  
+    <div id="element">
+   <label for="cardnumber">Card Number :</label><br>
+  <input type="text" id="cardnumber" name="cardnumber" required><br> </div>
+    
+    <div id="element">
+   <label for="expiry">Card expiry date:</label><br>
+  <input type="text" id="expiry" name="expiry" required><br> </div>
+  
+    
+    <div id="element">
+   <label for="cvv">CVV:</label><br>
+  <input type="text" id="cvv" name="cvv" required><br> </div>
+  
+  
+    
+
+  <!submit button> 
+     <div id="button"><button type="button" id="Button2" onclick="alert(Thanks())"><input type="submit" value="Submit"></button></div>
+    
+</form>
+   </div> 
+
+
+ </body>
+  <script>
+  function Thanks() {
+    return "Thank you for donating! "; 
+  }
+  </script>
+</html>
