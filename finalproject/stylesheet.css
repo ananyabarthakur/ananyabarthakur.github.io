@@ -64,6 +64,7 @@
 
 .dropdown:hover .dropdown-content {
   display: block;
+  background-color: #000000;
 }
 
 
