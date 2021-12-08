@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>mycommunity</title>
+    <meta charset="UTF-8">
+   <meta name="description" content="Community funding">
+   <meta name="keywords" content="Community, funding, local, support">
+   <meta name="author" content="Ananya Barthakur">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+    <link rel="stylesheet" href="stylesheet.css">
+
+    <style>
+        /* Container needed to position the button. Adjust the width as needed */
+      .container {
+  position: relative;
+  width: 100%;
+}
+
+
+
+/* Style the button and place it in the middle of the container/image */
+.container .btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.container .btn:hover {
+  background-color: black;
+}
+      #slideshow {
+            display: none;
+              width: 100%;
+         
+          }
+      
+
+    </style>
+ </head>
+
+ <body>
+   <! div1 = header>
+   <div id = "headerbox"> <img src="web_logo.png" alt="logo" width="7%" height="10%"> <h1> Welcome To Your Community. </h1></div>
+   
+   <! div2 = navigation>
+   <nav> <div id="navbox">  
+         <a href="https://ananyabarthakur.github.io/finalproject/about.html">About</a> 
+        <a href="https://ananyabarthakur.github.io/finalproject/impact.html">Impact</a>
+         <! div dropdown menu>
+                <div class="dropdown">
+                    <button>Find Your Community</button>
+                    <div class="dropdown-content">
+                             <a href="https://ananyabarthakur.github.io/finalproject/community.html">Community</a>
+                             <a href="https://ananyabarthakur.github.io/finalproject/institution.html">Institution</a>
+                   </div> 
+           </div>
+          
+       <span style="display:inline-block; width: 70%;"></span>
+         <a href="https://ananyabarthakur.github.io/finalproject/contactus.html"> Contact Us </a>
+     </div>
+     </nav>
+
+   
+   
+     
+        <div class="container">
+          
+              <img id="slideshow" src="images/community1.jpg" alt="community">
+                <a href="https://ananyabarthakur.github.io/finalproject/community.html"> <button class="btn">  Donate Now  </button></a>
+
+
+            <img id="slideshow" src="images/community2.jpg" alt="community">
+              <a href="https://ananyabarthakur.github.io/finalproject/community.html"> <button class="btn">  Donate Now  </button></a>
+
+
+
+              <img id="slideshow" src="images/communtiy3.jpg" alt="community">
+            <a href="https://ananyabarthakur.github.io/finalproject/community.html"> <button class="btn">  Donate Now  </button></a>
+
+
+
+             <img id="slideshow" src="images/community4.jpg" alt="community">
+              <a href="https://ananyabarthakur.github.io/finalproject/community.html"> <button class="btn">  Donate Now  </button></a>
+          
+      </div>
+      
+     <footer>
+  
+    <p> Contact | +1 6178932263 | mycommunity@gmail.com </p>
+  </footer>
+
+ </body>
+   
+   <script>
+     const images = document.querySelectorAll("#slideshow"); 
+     
+
+    let i = 0;
+    
+    setInterval(function(){ 
+
+  if(i == 0) {
+    images[i].style.display = 'block';
+  } else if(i == images.length ) {
+    images[i - 1].style.display = 'none';
+    images[0].style.display = 'block';
+    i = 0;
+  } else {
+    images[i - 1].style.display = 'none';
+    images[i].style.display = 'block';
+  }
+  
+ i++;
+ 
+}, 2600);
+  </script>
+</html>
