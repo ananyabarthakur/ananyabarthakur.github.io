@@ -14,17 +14,22 @@
     <style>
         /* Container needed to position the button. Adjust the width as needed */
       .container {
-  position: relative;
-  width: 100%;
+        overflow: hidden;
+         width: 100%;
+        align-items: center;
+        text-align:center;
+        
 }
 
 
 
 /* Style the button and place it in the middle of the container/image */
 .container .btn {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  position: fixed;
+   transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  top: 52%;
+  left: 49%;
   background-color: #555;
   color: white;
   font-size: 16px;
@@ -37,11 +42,25 @@
 .container .btn:hover {
   background-color: black;
 }
-      #slideshow {
-            display: none;
-              width: 100%;
-         
-          }
+      #slideshow {   
+      display: none;
+      margin-top: 2.5%;
+        text-align: center;
+        margin-left:auto;
+        margin-right: auto;
+        max-height: 300px;
+   
+    }
+      footer {
+   position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 10%;
+  text-align: center;
+  padding: 3px;
+  background-color: #909090;
+  color: solid black;
+}
       
 
     </style>
@@ -74,29 +93,30 @@
      
         <div class="container">
           
-              <img id="slideshow" src="images/community1.jpg" alt="community">
-                <a href="https://ananyabarthakur.github.io/finalproject/community.html"> <button class="btn">  Donate Now  </button></a>
+              <img id="slideshow" src="images/community1-resized.jpg" alt="community">
+                <a href="https://ananyabarthakur.github.io/finalproject/community.html"> <button class="btn">  Donate Now!</button></a>
 
 
             <img id="slideshow" src="images/community2.jpg" alt="community">
-              <a href="https://ananyabarthakur.github.io/finalproject/community.html"> <button class="btn">  Donate Now  </button></a>
+              <a href="https://ananyabarthakur.github.io/finalproject/community.html"> <button class="btn">  Donate Now!  </button></a>
 
 
 
               <img id="slideshow" src="images/communtiy3.jpg" alt="community">
-            <a href="https://ananyabarthakur.github.io/finalproject/community.html"> <button class="btn">  Donate Now  </button></a>
+            <a href="https://ananyabarthakur.github.io/finalproject/community.html"> <button class="btn">  Donate Now!  </button></a>
 
 
 
              <img id="slideshow" src="images/community4.jpg" alt="community">
-              <a href="https://ananyabarthakur.github.io/finalproject/community.html"> <button class="btn">  Donate Now  </button></a>
+              <a href="https://ananyabarthakur.github.io/finalproject/community.html"> <button class="btn">  Donate Now!  </button></a>
           
       </div>
-      
-     <footer>
-  
-    <p> Contact | +1 6178932263 | mycommunity@gmail.com </p>
+   
+   <footer>
+      <p> Contact | +1 6178932263 | mycommunity@gmail.com </p>
   </footer>
+      
+     
 
  </body>
    
@@ -124,3 +144,4 @@
 }, 2600);
   </script>
 </html>
+
