@@ -14,23 +14,24 @@
     }
     body {
       font-family: 'Inter', Arial, sans-serif;
-      background: #fef6f9;
-      color: #333;
+      background: #f4f6f8;
+      color: #2c3e50;
       line-height: 1.6;
       padding: 0 1rem;
     }
     a {
-      color: #db7093; /* Soft pink pastel accent */
+      color: #1abc9c;
       text-decoration: none;
-      transition: color 0.3s;
+      transition: color 0.3s, border-bottom 0.3s;
     }
     a:hover {
-      color: #a05275;
+      color: #16a085;
+      border-bottom: 1px solid #16a085;
     }
 
     /* Header */
     header {
-      background: linear-gradient(90deg, #db7093, #f5b5c6, #a05275);
+      background: linear-gradient(90deg, #34495e, #2c3e50);
       color: #fff;
       padding: 3rem 1rem;
       text-align: center;
@@ -53,18 +54,19 @@
       margin: 2rem auto;
       background: #fff;
       border-radius: 12px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
       overflow: hidden;
-      transition: transform 0.3s;
+      transition: transform 0.3s, box-shadow 0.3s;
       animation: fadeInUp 1s ease-out;
     }
     main:hover {
-      transform: translateY(-2px);
+      transform: translateY(-4px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
     }
 
     section {
       padding: 2rem;
-      border-bottom: 1px solid #f0e0e5;
+      border-bottom: 1px solid #e0e6ed;
       animation: fadeInUp 1s ease-out;
     }
     section:last-child {
@@ -72,15 +74,17 @@
     }
 
     h2 {
-      font-size: 1.6rem;
-      color: #db7093;
+      font-size: 1.8rem;
+      color: #34495e;
       margin-bottom: 1rem;
       font-weight: 600;
+      border-left: 4px solid #1abc9c;
+      padding-left: 0.5rem;
     }
 
     h3 {
-      font-size: 1.3rem;
-      color: #a05275;
+      font-size: 1.4rem;
+      color: #2c3e50;
       margin-bottom: 0.5rem;
       font-weight: 600;
     }
@@ -102,6 +106,14 @@
       display: inline-block;
       margin-right: 1rem;
       margin-top: 0.5rem;
+      padding: 0.3rem 0.6rem;
+      background: #1abc9c;
+      color: #fff;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+    .contact-info a:hover {
+      background: #16a085;
     }
 
     footer {
@@ -142,7 +154,7 @@
   <main>
     <section>
       <h2>About Me</h2>
-      <p>Hi! I’m Ananya, a passionate software engineer with 2 years of experience at Microsoft. I specialize in building intuitive, scalable web applications using technologies like React, TypeScript, .NET, and Azure. I love combining design and engineering to create impactful user experiences that look and feel modern.</p>
+      <p>Hi! I’m Ananya, a passionate software engineer with 2 years of experience at Microsoft. I specialize in building intuitive, scalable web applications using modern frameworks and technologies. I love merging design and engineering to craft user experiences that are both beautiful and functional.</p>
     </section>
 
     <section>
@@ -152,11 +164,11 @@
         <p><strong>Redmond, WA | Jul’23 – Present</strong></p>
         <ul>
           <li>Integrated Generative AI into Microsoft’s internal authoring platform, boosting content creation efficiency by 99% across 2B+ support pages.</li>
-          <li>Modernized frontend architecture with React, Redux, and Fluent UI, migrating legacy code and shipping accessible, high-performance UIs.</li>
-          <li>Implemented a schema-driven, form-based UI with JSONForms, cutting authoring time by 70% and reducing errors by 90%.</li>
-          <li>Built and optimized event-driven systems serving 2B+ requests/month.</li>
-          <li>Implemented real-time metadata pipelines and backend APIs with C#, .NET, Azure Functions, and CosmosDB.</li>
-          <li>Led authentication migration to Managed Identity, enhancing security and reducing risk.</li>
+          <li>Modernized frontend architecture with React, Redux, and Fluent UI, migrating legacy code to functional patterns and ensuring accessibility and performance.</li>
+          <li>Built a schema-driven, form-based UI with JSONForms, reducing authoring time by 70% and error rates by 90%.</li>
+          <li>Developed event-driven systems serving 2B+ requests/month, optimized for scalability and reliability.</li>
+          <li>Implemented real-time metadata pipelines and backend APIs using C#, .NET, Azure Functions, and CosmosDB.</li>
+          <li>Led authentication migration to Managed Identity, enhancing security and reducing operational risk.</li>
         </ul>
       </section>
 
@@ -164,7 +176,7 @@
         <h3>Microsoft — Software Engineer Intern</h3>
         <p><strong>Redmond, WA | May – Aug’22</strong></p>
         <ul>
-          <li>Built a web app with TypeScript + React and the M365 extensibility SDK, enabling code portability across multiple Teams hosts.</li>
+          <li>Built a web app with TypeScript, React, and M365 extensibility SDK, enabling code portability across Teams hosts.</li>
           <li>Implemented single sign-on authentication and messaging features with shared logic across surfaces.</li>
           <li>Published an open-source sample app using the official Microsoft Teams JS SDK on GitHub.</li>
         </ul>
@@ -174,16 +186,16 @@
         <h3>Applied Machine Learning — Research Intern</h3>
         <p><strong>Boston, MA | May’21 – May’22</strong></p>
         <ul>
-          <li>Developed ML models to predict compound solubility, using cheminformatics tools like RDKit and ASE to analyze 10,000+ molecules.</li>
+          <li>Developed ML models predicting compound solubility using cheminformatics tools (RDKit, ASE) on 10,000+ molecules.</li>
         </ul>
       </section>
 
       <section>
         <h3>Personal Projects</h3>
         <ul>
-          <li><strong>Hartree-Fock Solver</strong> — Python program approximating electronic energies and visualizing molecular orbitals.</li>
-          <li><strong>TNBC Tissue Images</strong> — Deep learning pipeline analyzing TNBC tissue images with CNNs, supporting clinical workflows.</li>
-          <li><strong>H₂ Potential Energy Surface</strong> — CNN-based modeling of H₂ molecules, exploring quantum mechanics and electronic structure predictions.</li>
+          <li><strong>Hartree-Fock Solver</strong> — Python program for electronic energy approximation and molecular orbital visualization.</li>
+          <li><strong>TNBC Tissue Images</strong> — Deep learning pipeline analyzing TNBC tissue images with CNNs to support clinical workflows.</li>
+          <li><strong>H₂ Potential Energy Surface</strong> — CNN-based modeling of H₂ molecules for quantum mechanical analysis.</li>
         </ul>
       </section>
     </section>
@@ -204,7 +216,7 @@
   </main>
 
   <footer>
-    &copy; 2025 Ananya Barthakur. All rights reserved.
+    &copy; 2025 Ananya Barthakur
   </footer>
 
 </body>
