@@ -20,6 +20,9 @@
       margin: 0;
       padding: 0;
     }
+    html {
+  scroll-behavior: smooth;
+}
     body {
       font-family: "Inter", Arial, sans-serif;
       background: linear-gradient(to bottom, #f9fafb, #edf2f7); /* very subtle gradient */
@@ -34,10 +37,15 @@
       border-bottom: 2px solid transparent;
       transition: color 0.3s, border-bottom 0.3s;
     }
+
     a:hover {
+      text-decoration: underline;
+      transform: scale(1.02);
+      transition: transform 0.3s, text-decoration 0.3s;
       color: #1f78b4;
       border-bottom: 2px solid #1f78b4;
     }
+
 
     header {
       background: #000000; /* black header */
@@ -84,6 +92,7 @@ header .email {
       transform-origin: center center;
       opacity: 0.8;
     }
+    
 
     h2 {
       font-size: 1.4rem;
