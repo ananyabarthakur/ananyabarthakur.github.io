@@ -77,6 +77,9 @@ header .email {
 
     section {
       margin-bottom: 2rem;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      transform-origin: center center;
+      opacity: 0.8; /* subtle fade */
     }
     h2 {
       font-size: 1.4rem;
@@ -436,5 +439,26 @@ header .email {
   <footer>
     &copy; 2025 Ananya Barthakur
   </footer>
+  <script>
+    const sections = document.querySelectorAll('section');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.transform = 'scale(1.03)';
+          entry.target.style.opacity = '1';
+        } else {
+          entry.target.style.transform = 'scale(0.98)';
+          entry.target.style.opacity = '0.8';
+        }
+      });
+    }, {
+      threshold: 0.5
+    });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
 </body>
 </html>
