@@ -188,21 +188,22 @@ header .email {
 .contact-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.4rem 1rem;
-  background: #4b6cb7;
+  gap: 0.3rem;
+  padding: 0.3rem 0.8rem;
+  background: linear-gradient(90deg, #8ecae6, #219ebc);
   color: #fff;
-  border-radius: 20px;
-  font-size: 0.9rem;
+  border-radius: 9999px; /* Makes it pill-shaped */
+  font-size: 0.85rem;
   font-weight: 500;
   text-decoration: none;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  transition: background 0.3s, transform 0.2s;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
 }
 
 .contact-link:hover {
-  background: #35588a;
+  background: linear-gradient(90deg, #219ebc, #8ecae6);
   transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
 .contact-link i {
@@ -406,15 +407,15 @@ header .email {
   </section>
 
     <section>
-  <h2 style="font-size: 1em;">Contact Me</h2>
+  <h2 style="font-size: 1em;">Contact</h2>
    <div>
-    <a href="mailto:ananyabarthakur1@gmail.com" >
+    <a href="mailto:ananyabarthakur1@gmail.com" class="contact-link">
       <i class="fas fa-envelope"></i> Email
     </a>
-    <a href="https://www.linkedin.com/in/ananya-barthakur1/" target="_blank" >
+    <a href="https://www.linkedin.com/in/ananya-barthakur1/" target="_blank" class="contact-link">
       <i class="fab fa-linkedin"></i> LinkedIn
     </a>
-    <a href="https://github.com/ananyabarthakur" target="_blank">
+    <a href="https://github.com/ananyabarthakur" target="_blank" class="contact-link">
       <i class="fab fa-github"></i> GitHub
     </a>
   </div> 
