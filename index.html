@@ -160,15 +160,48 @@ header .email {
   font-weight: 600;
   color: #2c3e50;
 }
-    #contact {
+#contact {
   text-align: center;
   padding: 2rem;
+  background: #f9f9f9; /* Soft background */
+  border-radius: 8px;
+  margin-top: 2rem;
 }
 
 #contact h2 {
-  font-size: 1.5rem; /* Reduced from 2rem */
+  font-size: 1.4rem;
   margin-bottom: 1rem;
-  color: #2c3e50;
+  color: #34495e;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 1rem;
+  background: #4b6cb7;
+  color: #fff;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: background 0.3s, transform 0.2s;
+}
+
+.contact-link:hover {
+  background: #35588a;
+  transform: translateY(-2px);
+}
+
+.contact-link i {
+  font-size: 1rem;
 }
 
 
@@ -369,7 +402,7 @@ header .email {
 
     <section id="contact">
   <h2>Contact Me</h2>
-  <div class="contact-links">
+  <div class="contact-container">
     <a href="mailto:ananyabarthakur1@gmail.com" class="contact-link">
       <i class="fas fa-envelope"></i> Email
     </a>
@@ -381,6 +414,7 @@ header .email {
     </a>
   </div>
 </section>
+
 
   </main>
 
