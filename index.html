@@ -30,6 +30,45 @@
       line-height: 1.7;
       min-height: 100vh;
       position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Animated background particles */
+    .bg-particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    .particle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: radial-gradient(circle, #3b82f6, transparent);
+      border-radius: 50%;
+      animation: float-particle 20s linear infinite;
+    }
+
+    @keyframes float-particle {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+      }
     }
 
     /* Subtle animated background elements */
@@ -46,6 +85,14 @@
         radial-gradient(circle at 40% 40%, rgba(16, 185, 129, 0.03) 0%, transparent 50%);
       pointer-events: none;
       z-index: 0;
+      animation: bg-shift 30s ease-in-out infinite;
+    }
+
+    @keyframes bg-shift {
+      0%, 100% { transform: translateX(0) translateY(0); }
+      25% { transform: translateX(-20px) translateY(-10px); }
+      50% { transform: translateX(20px) translateY(10px); }
+      75% { transform: translateX(-10px) translateY(20px); }
     }
 
     a {
@@ -53,11 +100,17 @@
       text-decoration: none;
       border-bottom: 2px solid transparent;
       transition: all 0.3s ease;
+      position: relative;
     }
 
     a:hover {
       color: #1d4ed8;
       border-bottom: 2px solid #1d4ed8;
+    }
+
+    /* Magnetic effect for interactive elements */
+    .magnetic {
+      transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
     header {
@@ -81,6 +134,12 @@
         radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
         radial-gradient(circle at 70% 80%, rgba(139, 92, 246, 0.08) 0%, transparent 50%);
       pointer-events: none;
+      animation: header-glow 8s ease-in-out infinite;
+    }
+
+    @keyframes header-glow {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 0.8; }
     }
 
     header h1 {
@@ -94,6 +153,20 @@
       position: relative;
       z-index: 1;
       letter-spacing: -0.02em;
+      animation: text-shimmer 3s ease-in-out infinite;
+    }
+
+    @keyframes text-shimmer {
+      0%, 100% { 
+        background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+      }
+      50% { 
+        background: linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #e2e8f0 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+      }
     }
 
     header .job-title {
@@ -101,6 +174,7 @@
       margin-bottom: 0.3rem;
       color: #cbd5e1;
       font-weight: 500;
+      animation: fadeInUp 1s ease-out 0.5s both;
     }
 
     header .tagline {
@@ -109,6 +183,7 @@
       font-weight: 400;
       margin-top: 0.5rem;
       color: #94a3b8;
+      animation: fadeInUp 1s ease-out 0.7s both;
     }
 
     main {
@@ -123,6 +198,13 @@
       overflow: hidden;
       position: relative;
       z-index: 1;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* Tilt effect for main container */
+    main:hover {
+      transform: perspective(1000px) rotateX(1deg) rotateY(-1deg);
+      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
     .profile-section {
@@ -130,6 +212,7 @@
       padding: 2.5rem;
       text-align: center;
       border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+      position: relative;
     }
 
     .profile-img {
@@ -142,24 +225,77 @@
         0 20px 25px -5px rgba(0, 0, 0, 0.1),
         0 10px 10px -5px rgba(0, 0, 0, 0.04);
       margin-bottom: 1.5rem;
-      transition: transform 0.3s ease;
+      transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+      z-index: 2;
     }
 
     .profile-img:hover {
-      transform: scale(1.02);
+      transform: scale(1.05) rotate(2deg);
+      box-shadow: 
+        0 30px 40px -5px rgba(0, 0, 0, 0.15),
+        0 0 0 8px rgba(59, 130, 246, 0.1);
+    }
+
+    /* Morphing background blob */
+    .profile-section::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 300px;
+      height: 300px;
+      background: linear-gradient(45deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+      animation: blob-morph 20s ease-in-out infinite;
+    }
+
+    @keyframes blob-morph {
+      0%, 100% { 
+        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        transform: translate(-50%, -50%) rotate(0deg);
+      }
+      25% { 
+        border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+        transform: translate(-50%, -50%) rotate(90deg);
+      }
+      50% { 
+        border-radius: 50% 30% 60% 40% / 40% 70% 60% 50%;
+        transform: translate(-50%, -50%) rotate(180deg);
+      }
+      75% { 
+        border-radius: 40% 70% 30% 60% / 60% 40% 50% 70%;
+        transform: translate(-50%, -50%) rotate(270deg);
+      }
     }
 
     .content-wrapper {
       padding: 3rem;
+      position: relative;
     }
 
     section {
       margin-bottom: 3.5rem;
-      transition: all 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+    }
+
+    /* Intersection observer animation target */
+    .animate-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .animate-in.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     section:hover {
-      transform: translateY(-1px);
+      transform: translateY(-2px);
     }
 
     h2 {
@@ -177,10 +313,15 @@
       position: absolute;
       bottom: 0;
       left: 0;
-      width: 80px;
+      width: 0;
       height: 3px;
       background: linear-gradient(135deg, #3b82f6, #1d4ed8);
       border-radius: 2px;
+      transition: width 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    section.visible h2::after {
+      width: 80px;
     }
 
     h3 {
@@ -228,6 +369,12 @@
       position: relative;
       padding-left: 1.2rem;
       margin-bottom: 0.8rem;
+      transition: all 0.3s ease;
+    }
+
+    li:hover {
+      transform: translateX(5px);
+      color: #1e293b;
     }
 
     li::before {
@@ -237,6 +384,12 @@
       color: #3b82f6;
       font-weight: bold;
       font-size: 1.2rem;
+      transition: all 0.3s ease;
+    }
+
+    li:hover::before {
+      color: #1d4ed8;
+      transform: scale(1.2);
     }
 
     .project-highlight {
@@ -247,12 +400,13 @@
       margin: 2rem 0;
       position: relative;
       overflow: hidden;
-      transition: all 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
     .project-highlight:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: 0 25px 40px -5px rgba(0, 0, 0, 0.15);
+      border-color: #3b82f6;
     }
 
     .project-highlight::before {
@@ -263,51 +417,33 @@
       width: 4px;
       height: 100%;
       background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      transition: width 0.3s ease;
     }
 
-    .project-title {
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: #1e293b;
-      margin-bottom: 0.75rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
+    .project-highlight:hover::before {
+      width: 8px;
     }
 
-    .project-badge {
-      background: linear-gradient(135deg, #10b981, #059669);
-      color: white;
-      padding: 0.4rem 1rem;
-      border-radius: 24px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2);
+    /* Floating dots animation */
+    .project-highlight::after {
+      content: '';
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background: 
+        radial-gradient(circle at 20% 20%, #3b82f6 2px, transparent 2px),
+        radial-gradient(circle at 80% 20%, #8b5cf6 2px, transparent 2px),
+        radial-gradient(circle at 50% 80%, #10b981 2px, transparent 2px);
+      background-size: 20px 20px;
+      opacity: 0.3;
+      animation: float-dots 6s ease-in-out infinite;
     }
 
-    .tech-stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.6rem;
-      margin-top: 1.2rem;
-    }
-
-    .tech-tag {
-      background: #f1f5f9;
-      color: #475569;
-      padding: 0.4rem 1rem;
-      border-radius: 24px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      border: 1px solid #e2e8f0;
-      transition: all 0.2s ease;
-    }
-
-    .tech-tag:hover {
-      background: #e2e8f0;
-      transform: translateY(-1px);
+    @keyframes float-dots {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(180deg); }
     }
 
     .skills-grid {
@@ -323,14 +459,32 @@
       border-radius: 16px;
       border: 1px solid #e2e8f0;
       border-left: 4px solid #3b82f6;
-      transition: all 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-category::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+      transition: left 0.6s ease;
+    }
+
+    .skill-category:hover::before {
+      left: 100%;
     }
 
     .skill-category:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1);
+      transform: translateY(-4px) rotate(1deg);
+      box-shadow: 0 15px 30px -3px rgba(0, 0, 0, 0.15);
       border-left-color: #1d4ed8;
+      border-left-width: 6px;
     }
 
     .skill-category h4 {
@@ -339,6 +493,8 @@
       color: #1e293b;
       margin-bottom: 1rem;
       letter-spacing: -0.01em;
+      position: relative;
+      z-index: 2;
     }
 
     .contact-section {
@@ -348,6 +504,7 @@
       text-align: center;
       margin: 0;
       border-top: 1px solid rgba(226, 232, 240, 0.5);
+      position: relative;
     }
 
     .contact-section h2 {
@@ -377,18 +534,43 @@
       border-radius: 50px;
       font-weight: 600;
       text-decoration: none;
-      transition: all 0.3s ease;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       border: 2px solid #e2e8f0;
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-link::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+      border-radius: 50%;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transform: translate(-50%, -50%);
+      z-index: 1;
+    }
+
+    .contact-link:hover::before {
+      width: 300px;
+      height: 300px;
     }
 
     .contact-link:hover {
-      background: linear-gradient(135deg, #3b82f6, #1d4ed8);
       color: white;
-      transform: translateY(-3px);
-      box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.25);
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.3);
       border-color: #3b82f6;
       border-bottom: 2px solid #3b82f6;
+    }
+
+    .contact-link > * {
+      position: relative;
+      z-index: 2;
     }
 
     .email-display {
@@ -407,6 +589,18 @@
       background: transparent;
       position: relative;
       z-index: 1;
+    }
+
+    /* Scroll progress indicator */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+      z-index: 10000;
+      transition: width 0.1s ease;
     }
 
     @media (max-width: 768px) {
@@ -443,6 +637,14 @@
       .profile-img {
         width: 160px;
         height: 160px;
+      }
+
+      main:hover {
+        transform: none;
+      }
+
+      .cursor-trail {
+        display: none;
       }
     }
 
@@ -497,34 +699,58 @@
     .project-highlight {
       backdrop-filter: blur(10px);
     }
+
+    /* Hide scrollbar but keep functionality */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(135deg, #1d4ed8, #7c3aed);
+    }
   </style>
 </head>
 <body>
+  <!-- Scroll progress indicator -->
+  <div class="scroll-progress"></div>
+
+  <!-- Animated background particles -->
+  <div class="bg-particles" id="particles"></div>
+
+
   <header>
     <h1>Ananya Barthakur</h1>
     <p class="job-title">Software Engineer</p>
     <p class="tagline">Full-Stack Developer</p>
   </header>
 
-  <main>
+  <main class="magnetic">
     <div class="profile-section">
       <img
         src="profile.jpeg"
         alt="Ananya Barthakur Headshot"
-        class="profile-img"
+        class="profile-img magnetic"
       />
     </div>
 
     <div class="content-wrapper">
-      <section>
+      <section class="animate-in">
         <h2>About Me</h2>
         <p>
           Hi! I'm Ananya, a full-stack software engineer with 2+ years of experience at Microsoft, specializing in scalable web applications and AI integration. I have a passion for creating solutions that bridge the gap between complex technology and intuitive user experiences. My expertise spans from developing high-performance backend systems serving billions of requests to crafting engaging frontend interfaces and integrating cutting-edge AI capabilities.
         </p>
-        
       </section>
 
-      <section>
+      <section class="animate-in">
         <h2>Professional Experience</h2>
 
         <div style="margin-bottom: 2.5rem;">
@@ -594,10 +820,8 @@
         </div>
       </section>
 
-      <section>
+      <section class="animate-in">
         <h2>Personal & Academic Projects</h2>
-        
-        
 
         <ul>
           <li>
@@ -629,7 +853,7 @@
         </ul>
       </section>
 
-      <section>
+      <section class="animate-in">
         <h2>Technical Skills</h2>
         <div class="skills-grid">
           <div class="skill-category">
@@ -651,7 +875,7 @@
         </div>
       </section>
 
-      <section>
+      <section class="animate-in">
         <h2>Recommendations</h2>
         <p>
           <a href="https://www.linkedin.com/in/ananya-barthakur1/details/recommendations/" target="_blank">
@@ -685,7 +909,7 @@
   </footer>
 
   <script>
-    // Enhanced scroll animations
+    // Enhanced scroll animations with intersection observer
     const observerOptions = {
       threshold: 0.1,
       rootMargin: '0px 0px -50px 0px'
@@ -694,19 +918,80 @@
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
+          entry.target.classList.add('visible');
         }
       });
     }, observerOptions);
 
     // Observe all sections for animation
-    document.querySelectorAll('section, .project-highlight').forEach(section => {
-      section.style.opacity = '0';
-      section.style.transform = 'translateY(20px)';
-      section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    document.querySelectorAll('.animate-in').forEach(section => {
       observer.observe(section);
     });
+
+    // Scroll progress indicator
+    window.addEventListener('scroll', () => {
+      const scrollProgress = document.querySelector('.scroll-progress');
+      const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+      scrollProgress.style.width = scrollPercent + '%';
+    });
+
+    // Create floating particles
+    function createParticles() {
+      const particlesContainer = document.getElementById('particles');
+      const particleCount = 15;
+
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.animationDelay = Math.random() * 20 + 's';
+        particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+        particlesContainer.appendChild(particle);
+      }
+    }
+
+    // Custom cursor trail
+    let cursorTrail = document.getElementById('cursor-trail');
+    let mouseX = 0, mouseY = 0;
+    let trailX = 0, trailY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    function updateCursor() {
+      const diffX = mouseX - trailX;
+      const diffY = mouseY - trailY;
+      
+      trailX += diffX * 0.1;
+      trailY += diffY * 0.1;
+      
+      cursorTrail.style.left = trailX + 'px';
+      cursorTrail.style.top = trailY + 'px';
+      
+      requestAnimationFrame(updateCursor);
+    }
+
+    // Magnetic effect for elements
+    function addMagneticEffect() {
+      const magneticElements = document.querySelectorAll('.magnetic');
+      
+      magneticElements.forEach(element => {
+        element.addEventListener('mousemove', (e) => {
+          const rect = element.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          
+          const intensity = 0.3;
+          element.style.transform = `translate(${x * intensity}px, ${y * intensity}px)`;
+        });
+        
+        element.addEventListener('mouseleave', () => {
+          element.style.transform = 'translate(0, 0)';
+        });
+      });
+    }
 
     // Smooth scroll for internal links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -722,11 +1007,35 @@
       });
     });
 
+    // Initialize all effects
+    document.addEventListener('DOMContentLoaded', () => {
+      createParticles();
+      updateCursor();
+      addMagneticEffect();
+      
+      // Add staggered animation delays to skill cards
+      const skillCards = document.querySelectorAll('.skill-category');
+      skillCards.forEach((card, index) => {
+        card.style.animationDelay = (index * 0.1) + 's';
+      });
+    });
+
     // Add subtle parallax effect to background
     window.addEventListener('scroll', () => {
       const scrolled = window.pageYOffset;
-      const rate = scrolled * -0.5;
-      document.body.style.transform = `translateY(${rate}px)`;
+      const rate = scrolled * -0.2;
+      document.body.style.backgroundPosition = `center ${rate}px`;
+    });
+
+    // Enhanced hover effects for contact links
+    document.querySelectorAll('.contact-link').forEach(link => {
+      link.addEventListener('mouseenter', () => {
+        link.style.transform = 'translateY(-4px) scale(1.05)';
+      });
+      
+      link.addEventListener('mouseleave', () => {
+        link.style.transform = 'translateY(0) scale(1)';
+      });
     });
   </script>
 </body>
