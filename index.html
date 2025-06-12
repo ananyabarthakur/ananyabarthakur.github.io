@@ -71,6 +71,8 @@
       }
     }
 
+    /* Cursor trail effect - REMOVED */
+
     /* Subtle animated background elements */
     body::before {
       content: '';
@@ -106,11 +108,6 @@
     a:hover {
       color: #1d4ed8;
       border-bottom: 2px solid #1d4ed8;
-    }
-
-    /* Magnetic effect for interactive elements */
-    .magnetic {
-      transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
     header {
@@ -373,7 +370,6 @@
     }
 
     li:hover {
-      transform: translateX(5px);
       color: #1e293b;
     }
 
@@ -591,17 +587,7 @@
       z-index: 1;
     }
 
-    /* Scroll progress indicator */
-    .scroll-progress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 0%;
-      height: 3px;
-      background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-      z-index: 10000;
-      transition: width 0.1s ease;
-    }
+    /* Scroll progress indicator - REMOVED */
 
     @media (max-width: 768px) {
       header {
@@ -700,7 +686,133 @@
       backdrop-filter: blur(10px);
     }
 
-    /* Hide scrollbar but keep functionality */
+    /* Navigation Menu */
+    .nav-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.3);
+      z-index: 1000;
+      transition: all 0.3s ease;
+      transform: translateY(-100%);
+    }
+
+    .nav-menu.visible {
+      transform: translateY(0);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    .nav-logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1e293b;
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-logo span {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border: 2px solid transparent;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #f8fafc, #ffffff);
+      position: relative;
+    }
+
+    .nav-logo span::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      padding: 2px;
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      border-radius: 12px;
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask-composite: xor;
+      -webkit-mask-composite: xor;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-link {
+      color: #64748b;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nav-link::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .nav-link:hover::before {
+      left: 100%;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: #3b82f6;
+      background: rgba(59, 130, 246, 0.1);
+      transform: translateY(-2px);
+      border-bottom: none;
+    }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 4px;
+    }
+
+    .nav-toggle span {
+      width: 25px;
+      height: 3px;
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      transition: all 0.3s ease;
+      border-radius: 3px;
+    }
+
+    .nav-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .nav-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+    }
     ::-webkit-scrollbar {
       width: 8px;
     }
@@ -720,37 +832,53 @@
   </style>
 </head>
 <body>
-  <!-- Scroll progress indicator -->
-  <div class="scroll-progress"></div>
+  <!-- Navigation Menu -->
+  <nav class="nav-menu" id="nav-menu">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <span>AB</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#recommendations" class="nav-link">Recommendations</a></li>
+        <li><a href="#blog" class="nav-link">Blog</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-toggle" id="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
 
-  <!-- Animated background particles -->
-  <div class="bg-particles" id="particles"></div>
-
-
-  <header>
+  <header id="home">
     <h1>Ananya Barthakur</h1>
     <p class="job-title">Software Engineer</p>
     <p class="tagline">Full-Stack Developer</p>
   </header>
 
-  <main class="magnetic">
+  <main>
     <div class="profile-section">
       <img
         src="profile.jpeg"
         alt="Ananya Barthakur Headshot"
-        class="profile-img magnetic"
+        class="profile-img"
       />
     </div>
 
     <div class="content-wrapper">
-      <section class="animate-in">
+      <section class="animate-in" id="about">
         <h2>About Me</h2>
         <p>
           Hi! I'm Ananya, a full-stack software engineer with 2+ years of experience at Microsoft, specializing in scalable web applications and AI integration. I have a passion for creating solutions that bridge the gap between complex technology and intuitive user experiences. My expertise spans from developing high-performance backend systems serving billions of requests to crafting engaging frontend interfaces and integrating cutting-edge AI capabilities.
         </p>
       </section>
 
-      <section class="animate-in">
+      <section class="animate-in" id="experience">
         <h2>Professional Experience</h2>
 
         <div style="margin-bottom: 2.5rem;">
@@ -820,7 +948,7 @@
         </div>
       </section>
 
-      <section class="animate-in">
+      <section class="animate-in" id="projects">
         <h2>Personal & Academic Projects</h2>
 
         <ul>
@@ -853,7 +981,7 @@
         </ul>
       </section>
 
-      <section class="animate-in">
+      <section class="animate-in" id="skills">
         <h2>Technical Skills</h2>
         <div class="skills-grid">
           <div class="skill-category">
@@ -875,7 +1003,7 @@
         </div>
       </section>
 
-      <section class="animate-in">
+      <section class="animate-in" id="recommendations">
         <h2>Recommendations</h2>
         <p>
           <a href="https://www.linkedin.com/in/ananya-barthakur1/details/recommendations/" target="_blank">
@@ -883,9 +1011,146 @@
           </a>
         </p>
       </section>
+
+      <section class="animate-in" id="blog">
+        <h2>Blog</h2>
+        <div class="blog-grid">
+          <div class="blog-card">
+            <div class="blog-date">May 2025</div>
+            <h3>Building a Hartree-Fock Solver: From Quantum Theory to Python Code</h3>
+            <p>A deep dive into implementing quantum chemistry's fundamental algorithm and its real-world applications in molecular modeling.</p>
+            <a href="#hartree-fock-blog" class="blog-link">Read More →</a>
+          </div>
+        </div>
+
+        <!-- Hartree-Fock Blog Post -->
+        <div class="blog-post" id="hartree-fock-blog" style="display: none;">
+          <div class="blog-post-header">
+            <button class="back-btn" onclick="closeBlogPost()"">← Back to Blog</button>
+            <div class="blog-date">December 2024</div>
+            <h1>Building a Hartree-Fock Solver: From Quantum Theory to Python Code</h1>
+            <p class="blog-subtitle">A journey into computational quantum chemistry and its practical applications</p>
+          </div>
+
+          <div class="blog-content">
+            <h2>What is Hartree-Fock Theory?</h2>
+            <p>The Hartree-Fock (HF) method is the cornerstone of modern quantum chemistry, providing a mean-field approximation to solve the many-electron Schrödinger equation. While the exact solution is computationally intractable for systems with more than a few electrons, HF gives us a practical starting point for understanding molecular electronic structure.</p>
+
+            <h2>Why Build Your Own Solver?</h2>
+            <p>During my research with Dr. Jean-Baptiste Tristan, I implemented a custom Hartree-Fock solver to gain deep insight into the underlying mathematics and computational challenges. This project bridges the gap between theoretical quantum mechanics and practical software engineering.</p>
+
+            <h2>The Algorithm Breakdown</h2>
+            <p>My implementation follows the Self-Consistent Field (SCF) procedure:</p>
+            
+            <div class="code-block">
+              <h4>1. Molecular Setup & Integrals</h4>
+              <pre><code># Define molecule using PySCF for robust integral evaluation
+mol = gto.Mole()
+mol.atom = molecule_xyz
+mol.basis = '4-31g'  # Split-valence basis set
+mol.build()
+
+# Calculate essential integrals
+S = mol.intor('int1e_ovlp')      # Overlap matrix
+T = mol.intor('int1e_kin')       # Kinetic energy
+V = mol.intor('int1e_nuc')       # Nuclear attraction
+eri = mol.intor('int2e')         # Two-electron repulsion</code></pre>
+            </div>
+
+            <div class="code-block">
+              <h4>2. SCF Iteration Loop</h4>
+              <pre><code># Build Fock matrix from density matrix
+for mu in range(nbf):
+    for nu in range(nbf):
+        for lam in range(nbf):
+            for sig in range(nbf):
+                J[mu, nu] += D[lam, sig] * eri[mu, nu, lam, sig]  # Coulomb
+                K[mu, nu] += D[lam, sig] * eri[mu, sig, lam, nu]  # Exchange
+
+F = H_core + J - 0.5 * K  # Closed-shell Fock matrix</code></pre>
+            </div>
+
+            <h2>Key Technical Challenges</h2>
+            
+            <h3>1. Numerical Stability</h3>
+            <p>The orthogonalization step using S^(-1/2) requires careful handling of near-linear dependencies in the basis set. I used symmetric orthogonalization to maintain numerical stability:</p>
+            
+            <div class="code-block">
+              <pre><code>eigvals, eigvecs = np.linalg.eigh(S)
+S_inv_sqrt = eigvecs @ np.diag(1.0 / np.sqrt(eigvals)) @ eigvecs.T</code></pre>
+            </div>
+
+            <h3>2. Convergence Optimization</h3>
+            <p>Achieving SCF convergence requires monitoring density matrix changes and implementing convergence acceleration techniques. My solver tracks both energy and density convergence:</p>
+
+            <div class="code-block">
+              <pre><code>delta_D = np.linalg.norm(D_new - D)
+if delta_D < convergence:
+    print("SCF Converged!")
+    break</code></pre>
+            </div>
+
+            <h2>Practical Applications</h2>
+
+            <h3>1. Drug Discovery & Molecular Design</h3>
+            <p>Pharmaceutical companies use HF calculations as the foundation for understanding drug-target interactions. The molecular orbitals and electron densities provide insights into binding affinity and selectivity.</p>
+
+            <h3>2. Materials Science</h3>
+            <p>HF serves as the starting point for more sophisticated methods (DFT, post-HF) used in designing new materials with specific electronic properties - from solar cells to superconductors.</p>
+
+            <h3>3. Catalysis Research</h3>
+            <p>Understanding reaction mechanisms requires accurate electronic structure calculations. HF provides the foundational orbitals for studying bond formation and breaking in catalytic processes.</p>
+
+            <h3>4. Environmental Chemistry</h3>
+            <p>Predicting the fate of pollutants in the atmosphere requires understanding their electronic properties, which HF calculations provide efficiently for large molecular databases.</p>
+
+            <h2>Performance Insights</h2>
+            <p>My implementation demonstrates the computational scaling challenges inherent in quantum chemistry:</p>
+            
+            <ul>
+              <li><strong>O(N⁴) scaling:</strong> The two-electron integral evaluation dominates computational cost</li>
+              <li><strong>Memory requirements:</strong> Storing all electron repulsion integrals scales as O(N⁴)</li>
+              <li><strong>Convergence behavior:</strong> Larger molecules require more sophisticated convergence acceleration</li>
+            </ul>
+
+            <h2>From Theory to Production</h2>
+            <p>This project taught me valuable lessons about bridging theoretical algorithms with practical implementation:</p>
+
+            <ul>
+              <li><strong>Algorithmic optimization:</strong> Understanding when to use approximations vs. exact methods</li>
+              <li><strong>Numerical precision:</strong> Managing floating-point errors in iterative algorithms</li>
+              <li><strong>Code modularity:</strong> Designing flexible interfaces for different molecular systems</li>
+              <li><strong>Performance profiling:</strong> Identifying computational bottlenecks in scientific code</li>
+            </ul>
+
+            <h2>Modern Extensions</h2>
+            <p>While my implementation focuses on the classic RHF method, modern quantum chemistry software incorporates:</p>
+
+            <ul>
+              <li><strong>Density Functional Theory (DFT):</strong> More accurate electron correlation treatment</li>
+              <li><strong>GPU acceleration:</strong> Parallel evaluation of two-electron integrals</li>
+              <li><strong>Machine learning:</strong> Predicting molecular properties without explicit SCF cycles</li>
+              <li><strong>Quantum computing:</strong> Exploring quantum algorithms for molecular simulation</li>
+            </ul>
+
+            <h2>Conclusion</h2>
+            <p>Building a Hartree-Fock solver from scratch provided deep insights into both quantum mechanics and scientific computing. This project exemplifies how fundamental algorithms in computational science require careful consideration of numerical methods, performance optimization, and software design principles.</p>
+
+            <p>The skills developed - from understanding complex mathematical algorithms to implementing robust numerical code - translate directly to my current work in software engineering, where similar challenges of scalability, accuracy, and performance optimization arise daily.</p>
+
+            <div class="blog-tags">
+              <span class="tag">Quantum Chemistry</span>
+              <span class="tag">Python</span>
+              <span class="tag">NumPy</span>
+              <span class="tag">Scientific Computing</span>
+              <span class="tag">Algorithm Implementation</span>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
 
-    <section class="contact-section">
+    <section class="contact-section" id="contact">
       <h2>Let's Connect</h2>
       <div class="email-display">
         <i class="fas fa-envelope"></i> ananyabarthakur1@gmail.com
@@ -928,12 +1193,7 @@
       observer.observe(section);
     });
 
-    // Scroll progress indicator
-    window.addEventListener('scroll', () => {
-      const scrollProgress = document.querySelector('.scroll-progress');
-      const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-      scrollProgress.style.width = scrollPercent + '%';
-    });
+    // Scroll progress indicator - REMOVED
 
     // Create floating particles
     function createParticles() {
@@ -950,48 +1210,9 @@
       }
     }
 
-    // Custom cursor trail
-    let cursorTrail = document.getElementById('cursor-trail');
-    let mouseX = 0, mouseY = 0;
-    let trailX = 0, trailY = 0;
+    // Custom cursor trail - REMOVED
 
-    document.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    });
-
-    function updateCursor() {
-      const diffX = mouseX - trailX;
-      const diffY = mouseY - trailY;
-      
-      trailX += diffX * 0.1;
-      trailY += diffY * 0.1;
-      
-      cursorTrail.style.left = trailX + 'px';
-      cursorTrail.style.top = trailY + 'px';
-      
-      requestAnimationFrame(updateCursor);
-    }
-
-    // Magnetic effect for elements
-    function addMagneticEffect() {
-      const magneticElements = document.querySelectorAll('.magnetic');
-      
-      magneticElements.forEach(element => {
-        element.addEventListener('mousemove', (e) => {
-          const rect = element.getBoundingClientRect();
-          const x = e.clientX - rect.left - rect.width / 2;
-          const y = e.clientY - rect.top - rect.height / 2;
-          
-          const intensity = 0.3;
-          element.style.transform = `translate(${x * intensity}px, ${y * intensity}px)`;
-        });
-        
-        element.addEventListener('mouseleave', () => {
-          element.style.transform = 'translate(0, 0)';
-        });
-      });
-    }
+    // Magnetic effect for elements - REMOVED
 
     // Smooth scroll for internal links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -1010,8 +1231,6 @@
     // Initialize all effects
     document.addEventListener('DOMContentLoaded', () => {
       createParticles();
-      updateCursor();
-      addMagneticEffect();
       
       // Add staggered animation delays to skill cards
       const skillCards = document.querySelectorAll('.skill-category');
@@ -1027,7 +1246,77 @@
       document.body.style.backgroundPosition = `center ${rate}px`;
     });
 
-    // Enhanced hover effects for contact links
+    // Navigation functionality
+    const navMenu = document.getElementById('nav-menu');
+    const navToggle = document.getElementById('nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    const navLinkElements = document.querySelectorAll('.nav-link');
+
+    // Show navigation after page loads
+    setTimeout(() => {
+      navMenu.classList.add('visible');
+    }, 1000);
+
+    // Mobile menu toggle
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    // Close mobile menu when clicking on a link
+    navLinkElements.forEach(link => {
+      link.addEventListener('click', () => {
+        navToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+
+    // Active navigation highlighting
+    function updateActiveNavLink() {
+      const sections = document.querySelectorAll('section[id], header[id]');
+      const scrollPos = window.scrollY + 100;
+      
+      sections.forEach(section => {
+        const top = section.offsetTop;
+        const height = section.offsetHeight;
+        const id = section.getAttribute('id');
+        
+        if (scrollPos >= top && scrollPos < top + height) {
+          navLinkElements.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${id}`) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateActiveNavLink);
+
+    // Blog post functionality
+    function openBlogPost(postId) {
+      document.querySelector('.blog-grid').style.display = 'none';
+      document.querySelector(postId).style.display = 'block';
+      document.querySelector('#blog h2').style.display = 'none';
+    }
+
+    function closeBlogPost() {
+      document.querySelector('.blog-grid').style.display = 'grid';
+      document.querySelector('#hartree-fock-blog').style.display = 'none';
+      document.querySelector('#blog h2').style.display = 'block';
+    }
+
+    // Add click handler for blog links
+    document.addEventListener('DOMContentLoaded', () => {
+      const blogLink = document.querySelector('a[href="#hartree-fock-blog"]');
+      if (blogLink) {
+        blogLink.addEventListener('click', (e) => {
+          e.preventDefault();
+          openBlogPost('#hartree-fock-blog');
+        });
+      }
+    });
     document.querySelectorAll('.contact-link').forEach(link => {
       link.addEventListener('mouseenter', () => {
         link.style.transform = 'translateY(-4px) scale(1.05)';
