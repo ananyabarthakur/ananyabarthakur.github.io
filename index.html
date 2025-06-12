@@ -234,39 +234,6 @@
         0 0 0 8px rgba(59, 130, 246, 0.1);
     }
 
-    /* Morphing background blob */
-    .profile-section::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 300px;
-      height: 300px;
-      background: linear-gradient(45deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
-      border-radius: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 1;
-      animation: blob-morph 20s ease-in-out infinite;
-    }
-
-    @keyframes blob-morph {
-      0%, 100% { 
-        border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-        transform: translate(-50%, -50%) rotate(0deg);
-      }
-      25% { 
-        border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
-        transform: translate(-50%, -50%) rotate(90deg);
-      }
-      50% { 
-        border-radius: 50% 30% 60% 40% / 40% 70% 60% 50%;
-        transform: translate(-50%, -50%) rotate(180deg);
-      }
-      75% { 
-        border-radius: 40% 70% 30% 60% / 60% 40% 50% 70%;
-        transform: translate(-50%, -50%) rotate(270deg);
-      }
-    }
 
     .content-wrapper {
       padding: 3rem;
@@ -420,27 +387,6 @@
       width: 8px;
     }
 
-    /* Floating dots animation */
-    .project-highlight::after {
-      content: '';
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      width: 60px;
-      height: 60px;
-      background: 
-        radial-gradient(circle at 20% 20%, #3b82f6 2px, transparent 2px),
-        radial-gradient(circle at 80% 20%, #8b5cf6 2px, transparent 2px),
-        radial-gradient(circle at 50% 80%, #10b981 2px, transparent 2px);
-      background-size: 20px 20px;
-      opacity: 0.3;
-      animation: float-dots 6s ease-in-out infinite;
-    }
-
-    @keyframes float-dots {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-10px) rotate(180deg); }
-    }
 
     .skills-grid {
       display: grid;
@@ -835,9 +781,6 @@
   <!-- Navigation Menu -->
   <nav class="nav-menu" id="nav-menu">
     <div class="nav-container">
-      <div class="nav-logo">
-        <span>AB</span>
-      </div>
       <ul class="nav-links">
         <li><a href="#about" class="nav-link">About</a></li>
         <li><a href="#experience" class="nav-link">Experience</a></li>
