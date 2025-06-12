@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ananya Barthakur | Portfolio</title>
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
     rel="stylesheet"
   />
   <link
   rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
 />
 
   <style>
@@ -21,292 +21,388 @@
       padding: 0;
     }
     html {
-  scroll-behavior: smooth;
-}
+      scroll-behavior: smooth;
+    }
     body {
       font-family: "Inter", Arial, sans-serif;
-      background: linear-gradient(to bottom, #f9fafb, #edf2f7); /* very subtle gradient */
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: #111111;
-      /*color: #2c3e50;*/
       line-height: 1.7;
+      min-height: 100vh;
     }
 
     a {
       color: #3498db;
       text-decoration: none;
       border-bottom: 2px solid transparent;
-      transition: color 0.3s, border-bottom 0.3s;
+      transition: all 0.3s ease;
     }
 
     a:hover {
-      transform: scale(1.02);
-      transition: transform 0.3s, text-decoration 0.3s;
       color: #1f78b4;
       border-bottom: 2px solid #1f78b4;
     }
 
-
     header {
-      background: #000000; /* black header */
+      background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
       color: #ffffff;
-      padding: 3rem 1rem;
+      padding: 4rem 1rem;
       text-align: center;
-      animation: fadeIn 1s ease-out;
+      position: relative;
+      overflow: hidden;
     }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.1) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
     header h1 {
-      font-size: 2.8rem;
+      font-size: 3.2rem;
       font-weight: 700;
       margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      position: relative;
+      z-index: 1;
     }
-    header .job-title {
-  font-size: 1.2rem;
-  margin-bottom: 0.2rem;
-}
 
-header .email {
-  font-size: 0.8rem;
-  opacity: 0.85;
-}
-    header p {
-      font-size: 1.2rem;
-      opacity: 0.95;
+    header .job-title {
+      font-size: 1.4rem;
+      margin-bottom: 0.3rem;
+      color: #b0b0b0;
+      font-weight: 400;
+    }
+
+    header .tagline {
+      font-size: 1rem;
+      opacity: 0.8;
+      font-weight: 300;
+      margin-top: 0.5rem;
     }
 
     main {
-      max-width: 960px;
-      margin: 2rem auto;
+      max-width: 1000px;
+      margin: -2rem auto 2rem;
       background: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
       overflow: hidden;
-      animation: fadeInUp 1s ease-out;
-      padding: 2rem;
+      position: relative;
+      z-index: 1;
     }
 
+    .profile-section {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      padding: 2rem;
+      text-align: center;
+      border-bottom: 1px solid #e9ecef;
+    }
+
+    .profile-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 6px solid #fff;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+      margin-bottom: 1.5rem;
+    }
+
+    .content-wrapper {
+      padding: 2.5rem;
+    }
 
     section {
-      margin-bottom: 2rem;
-      padding: 1rem 1rem; /* add some horizontal space too */
-      transition: transform 0.3s ease, opacity 0.3s ease;
-      transform-origin: center center;
-      opacity: 0.8;
+      margin-bottom: 3rem;
+      transition: all 0.3s ease;
     }
-    
+
+    section:hover {
+      transform: translateY(-2px);
+    }
 
     h2 {
-      font-size: 1.4rem;
-      color: #219ebc;
+      font-size: 1.6rem;
+      color: #2c3e50;
       font-weight: 600;
-      margin-bottom: 1rem;
-      border-left: 4px solid #3498db;
-      padding-left: 0.5rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.5rem;
     }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(135deg, #3498db, #2980b9);
+      border-radius: 2px;
+    }
+
     h3 {
-      font-size: 1rem;
+      font-size: 1.1rem;
       color: #2c3e50;
       margin-bottom: 0.5rem;
       font-weight: 600;
     }
-    p, li {
-      font-size: 0.9rem;
-      margin-bottom: 0.5rem;
-      line-height: 1.8; 
-    }
-    ul {
-      padding-left: 1.5rem;
-      list-style: disc;
-    }
 
-    .small-btn {
-  padding: 6px 12px;      /* smaller padding */
-  font-size: 12px;        /* smaller text */
-}
-    
-    .contact-info {
+    .job-header {
       display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.8rem;
       flex-wrap: wrap;
       gap: 0.5rem;
     }
-    .contact-info a {
-      background: #3498db;
-      color: #fff;
-      padding: 0.4rem 0.8rem;
-      border-radius: 4px;
+
+    .job-title-company {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #2c3e50;
+    }
+
+    .job-location-date {
+      font-size: 0.9rem;
+      color: #7f8c8d;
       font-weight: 500;
-      transition: background 0.3s;
-    }
-    .contact-info a:hover {
-      background: #1f78b4;
+      text-align: right;
     }
 
-    .profile-img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #fff;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      margin: 1rem auto;
-      display: block;
+    p, li {
+      font-size: 0.95rem;
+      margin-bottom: 0.6rem;
+      line-height: 1.8;
+      color: #444;
     }
-    #recommendations {
-  background: #f0f8ff; /* Soft blue background */
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  margin-top: 2rem;
-}
 
-.recommendations-container {
-  display: grid;
-  gap: 1.5rem;
-}
+    ul {
+      padding-left: 1.5rem;
+      list-style: none;
+    }
 
-.recommendation {
-  background: #fff;
-  padding: 1.5rem;
-  border-left: 4px solid #3498db;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  animation: fadeInUp 0.8s ease-out;
-}
+    li {
+      position: relative;
+      padding-left: 1rem;
+    }
 
-.recommendation .quote {
-  font-style: italic;
-  margin-bottom: 0.5rem;
-  color: #333;
-}
+    li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: #3498db;
+      font-weight: bold;
+    }
 
-.recommendation .author {
-  font-weight: 600;
-  color: #2c3e50;
-}
-#contact {
-  text-align: center;
-  padding: 2rem;
-  background: #f9f9f9; /* Soft background */
-  border-radius: 8px;
-  margin-top: 2rem;
-}
+    .project-highlight {
+      background: linear-gradient(135deg, #f8f9ff 0%, #e6f3ff 100%);
+      border: 1px solid #e3f2fd;
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 1.5rem 0;
+      position: relative;
+      overflow: hidden;
+    }
 
-#contact h2 {
-  font-size: 1.4rem;
-  margin-bottom: 1rem;
-  color: #34495e;
-}
+    .project-highlight::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(135deg, #3498db, #2980b9);
+    }
 
-.contact-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
+    .project-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .project-badge {
+      background: linear-gradient(135deg, #27ae60, #229954);
+      color: white;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .tech-tag {
+      background: #f1f3f4;
+      color: #5f6368;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      border: 1px solid #e8eaed;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .skill-category {
+      background: #f8f9fa;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border-left: 4px solid #3498db;
+    }
+
+    .skill-category h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 0.8rem;
+    }
+
+    .contact-section {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      color: #2c3e50;
+      padding: 2.5rem;
+      text-align: center;
+      margin: 0;
+      border-top: 1px solid #e9ecef;
+    }
+
+    .contact-section h2 {
+      color: #2c3e50;
+      margin-bottom: 2rem;
+    }
+
+    .contact-section h2::after {
+      background: linear-gradient(135deg, #3498db, #2980b9);
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
     .contact-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.3rem;
-  padding: 0.3rem 0.8rem;
-  background: #ffffff;
-  color: #000000;
-  border-radius: 9999px;
-  font-size: 0.85rem;
-  font-weight: 500;
-  text-decoration: none;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
-}
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.5rem;
+      background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+      color: #2c3e50;
+      border-radius: 30px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: 2px solid #e9ecef;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
 
+    .contact-link:hover {
+      background: linear-gradient(135deg, #3498db, #2980b9);
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(52, 152, 219, 0.3);
+      border-color: #3498db;
+      border-bottom: 2px solid #3498db;
+    }
 
-.contact-link:visited,
-.contact-link:hover,
-.contact-link:active {
-  color: #fff;
-}
-
-/*.contact-link:hover {
-  background: linear-gradient(90deg, #219ebc, #8ecae6);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-}*/
-  .contact-link:hover {
-  background: #000000;
-  color: #ffffff;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-}
-
-
-
-.contact-link i {
-  font-size: 1rem;
-}
-
-
-.contact-links {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-
-.contact-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.6rem 1.2rem;
-  background: #4b6cb7; /* Matches header blue */
-  color: #fff;
-  border-radius: 25px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: background 0.3s, transform 0.3s;
-}
-
-.contact-link:hover {
-  background: #35588a; /* Slightly darker for hover */
-  transform: translateY(-2px);
-}
-
-
-.contact-link i {
-  font-size: 1.2rem;
-}
-
+    .email-display {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      color: #2c3e50;
+      font-weight: 500;
+    }
 
     footer {
       text-align: center;
-      padding: 1rem;
+      padding: 2rem 1rem;
       font-size: 0.9rem;
-      color: #777;
+      color: rgba(255, 255, 255, 0.7);
+      background: transparent;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       header h1 {
-        font-size: 2.2rem;
+        font-size: 2.5rem;
       }
-      main {
+      
+      .content-wrapper {
         padding: 1.5rem;
+      }
+      
+      .job-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .job-location-date {
+        text-align: left;
+      }
+      
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .contact-links {
+        flex-direction: column;
+        align-items: center;
       }
     }
 
     /* Animations */
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
+
     @keyframes fadeInUp {
       from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(30px);
       }
       to {
         opacity: 1;
         transform: translateY(0);
       }
+    }
+
+    header {
+      animation: fadeIn 1s ease-out;
+    }
+
+    main {
+      animation: fadeInUp 1s ease-out 0.2s both;
+    }
+
+    .project-highlight {
+      animation: fadeInUp 0.8s ease-out;
     }
   </style>
 </head>
@@ -314,173 +410,229 @@ header .email {
   <header>
     <h1>Ananya Barthakur</h1>
     <p class="job-title">Software Engineer</p>
+    <p class="tagline">Full-Stack Developer • AI Enthusiast • Problem Solver</p>
   </header>
 
   <main>
-    <img
-      src="profile.jpeg"
-      alt="Ananya Barthakur Headshot"
-      class="profile-img"
-    />
+    <div class="profile-section">
+      <img
+        src="profile.jpeg"
+        alt="Ananya Barthakur Headshot"
+        class="profile-img"
+      />
+    </div>
 
-    <section>
-      <h2>About Me</h2>
-      <p>
-        Hi! I’m Ananya, a full stack software engineer with 2 years of experience at Microsoft. I specialize in developing scalable, high-performance web applications using modern frameworks and technologies. I also have experience applying machine learning to quantum chemistry problems, designing predictive models and analyzing complex data to support research and discovery. I thrive at the intersection of design, engineering, and data, creating solutions that are as visually compelling as they are intuitive and robust.
-      </p>      
-    </section>
-
-    <section>
-      <h2>Projects & Experience</h2>
+    <div class="content-wrapper">
+      <section>
+        <h2>About Me</h2>
+        <p>
+          Hi! I'm Ananya, a full-stack software engineer with 2+ years of experience at Microsoft, specializing in scalable web applications and AI integration. I have a passion for creating solutions that bridge the gap between complex technology and intuitive user experiences. My expertise spans from developing high-performance backend systems serving billions of requests to crafting engaging frontend interfaces and integrating cutting-edge AI capabilities.
+        </p>
+        
+      </section>
 
       <section>
-        <h3>Microsoft — Software Engineer</h3>
-        <p><strong>Redmond, WA | Jul’23 – Present</strong></p>
+        <h2>Professional Experience</h2>
+
+        <div style="margin-bottom: 2.5rem;">
+          <div class="job-header">
+            <h3 class="job-title-company">Microsoft — Software Engineer</h3>
+            <div class="job-location-date">Redmond, WA | Jul 2023 – Present</div>
+          </div>
+          <ul>
+            <li>
+              <strong>AI Integration:</strong> Integrated Generative AI into Microsoft's internal authoring platform, boosting content creation efficiency by 99% across 2B+ support pages
+            </li>
+            <li>
+              <strong>Frontend Architecture:</strong> Modernized frontend with React, Redux, and Fluent UI, migrating legacy systems while ensuring accessibility and performance standards
+            </li>
+            <li>
+              <strong>Schema-Driven Development:</strong> Built form-based UI with JSONForms, reducing authoring time by 70% and error rates by 90%
+            </li>
+            <li>
+              <strong>High-Scale Backend Systems:</strong> Engineered secure APIs using C#, .NET, Azure Functions, and CosmosDB—serving 15B+ monthly requests with 99.997% uptime
+            </li>
+            <li>
+              <strong>Real-Time Data Pipelines:</strong> Led development of metadata pipelines providing system insights for 30+ partner teams, enabling 100% content freshness visibility
+            </li>
+            <li>
+              <strong>DevOps & Infrastructure:</strong> Designed secure local development infrastructure with isolated Azure subscriptions and token-based authentication
+            </li>
+          </ul>
+        </div>
+
+        <div style="margin-bottom: 2.5rem;">
+          <div class="job-header">
+            <h3 class="job-title-company">Microsoft — Software Engineer Intern</h3>
+            <div class="job-location-date">Redmond, WA | May – Aug 2022</div>
+          </div>
+          <ul>
+            <li>
+              Built TypeScript + React web app using Microsoft's M365 extensibility SDK, enabling code portability across Teams hosts with 1M+ monthly active users
+            </li>
+            <li>
+              Created cross-host functionality with shared logic for SSO authentication, calling, and messaging features
+            </li>
+            <li>
+              Published open-source sample application using official Microsoft Teams JS SDK on GitHub
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="job-header">
+            <h3 class="job-title-company">Machine Learning Research — Dr. Jean-Baptiste Tristan</h3>
+            <div class="job-location-date">Boston, MA | May 2021 – May 2022</div>
+          </div>
+          <ul>
+            <li>
+              Developed ML models predicting compound solubility from cheminformatics datasets (10,000+ molecules) with R² > 0.95 accuracy
+            </li>
+            <li>
+              Implemented feature selection using Lasso regression to identify impactful chemical descriptors and reduce model complexity
+            </li>
+            <li>
+              Designed modular ML pipeline with cross-validation, hyperparameter tuning, and comprehensive performance metrics
+            </li>
+            <li>
+              Collaborated with research team to integrate predictive models into computational chemistry workflows
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>Personal & Academic Projects</h2>
+        
+        
+
         <ul>
           <li>
-            Integrated Generative AI into Microsoft’s internal authoring platform, boosting
-            content creation efficiency by 99% across 2B+ support pages.
+              <div class="project-highlight">
+                <div class="project-title">
+                  <i class="fas fa-seedling" style="color: #27ae60;"></i>
+                  PlantPal - AI Plant Care Assistant
+                  <span class="project-badge">Latest Project</span>
+                </div>
+                <p>
+                  A React web application that combines computer vision and nlp to help users identify plants and receive personalized care guidance. The app features dual AI integration with  offline fallback capabilities. Links to all my projects are on my github.
+                </p>
+                <ul>
+                  <li><strong>Smart Plant Identification:</strong> Integrated OpenAI Vision API and PlantNet API with fallback logic, achieving 90%+ accuracy in plant identification</li>
+                  <li><strong>AI-Powered Chat Assistant:</strong> Implemented conversational AI using OpenAI's GPT-4 for personalized plant care advice and problem diagnosis</li>
+                  <li><strong>Robust Architecture:</strong> Built comprehensive offline mode with local plant database, ensuring 100% functionality even when AI services are unavailable</li>
+                  <li><strong>User Experience:</strong> Designed intuitive interface with real-time image analysis, confidence scoring, and detailed care instructions</li>
+                  <li><strong>Performance Optimization:</strong> Implemented retry logic, error handling, and graceful degradation for enterprise-level reliability</li>
+                </ul>
+          </div>
           </li>
           <li>
-            Modernized frontend architecture with React, Redux, and Fluent UI, migrating legacy
-            code and ensuring accessibility and performance.
+            <strong>Hartree-Fock Solver</strong> — Python implementation for electronic energy approximation and molecular orbital visualization in quantum chemistry applications
           </li>
           <li>
-            Built a schema-driven, form-based UI with JSONForms, reducing authoring time by 70%
-            and error rates by 90%.
+            <strong>Computer Vision: Biomedical Application</strong> — Developed CNN and RNN models for breast cancer tissue analysis, enabling automated identification of tumor characteristics in TNBC research
           </li>
           <li>
-            Engineered secure, high-throughput backend APIs using C#, .NET, Azure Functions, and CosmosDB—serving over 15B monthly requests with 99.997% uptime, powering structured content ingestion and delivery across Microsoft websites.
+            <strong>H₂ Potential Energy Surface</strong> — Built Kernel Ridge Regression model with Gaussian Processes to predict molecular potential energy surfaces, using PyTorch for automatic differentiation
           </li>
+          
           <li>
-            Led and developed real-time metadata pipelines exposing system and asset-level insights for 30+ partner teams, enabling 100% visibility into content freshness and reducing debugging time.
-          </li>
-          <li>
-            Designed secure local development infrastructure, provisioning isolated Azure subscriptions, implementing token-based auth, and enabling full-featured local dev workflows without credential dependencies.
+            <strong>TA Application System</strong> — Django web application for Boston College streamlining Teaching Assistant applications with secure authentication and administrative workflows
           </li>
         </ul>
       </section>
 
       <section>
-        <h3>Microsoft — Software Engineer Intern</h3>
-        <p><strong>Redmond, WA | May – Aug’22</strong></p>
-        <ul>
-          <li>
-            Built a web app in TypeScript + React using Microsoft’s new M365 extensibility SDK, enabling code portability across multiple Teams hosts with 1M + monthly active users. 
-          </li>
-          <li>
-            Created cross-host app functionality leveraging the new client SDK for 1P and 3P developers to build on. Designed and implemented SSO auth, calling, and messaging features with shared logic across surfaces.
-          </li>
-          <li>
-            Published an open-source sample app using the official Microsoft Teams JS SDK on
-            GitHub.
-          </li>
-        </ul>
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h4>Frontend Development</h4>
+            <p>React, TypeScript, JavaScript, HTML/CSS, Redux, Fluent UI, Tailwind CSS</p>
+          </div>
+          <div class="skill-category">
+            <h4>Backend & Cloud</h4>
+            <p>.NET, C#, Node.js, Azure Functions, CosmosDB, REST APIs, Azure Infrastructure</p>
+          </div>
+          <div class="skill-category">
+            <h4>AI & Machine Learning</h4>
+            <p>OpenAI API, Computer Vision, NLP, Python, PyTorch, Scikit-learn, Data Analysis</p>
+          </div>
+          <div class="skill-category">
+            <h4>Tools & Databases</h4>
+            <p>Git, SQL, Django, Azure DevOps, Docker, JSON Schema, RESTful Services</p>
+          </div>
+        </div>
       </section>
 
       <section>
-        <h3>Machine Learning Intern to Dr. Jean-Baptise Tristan</h3>
-        <p><strong>Boston, MA | May’21 – May’22</strong></p>
-        <ul>
-          <li>
-            Developed machine learning models to predict compound solubility from large cheminformatics datasets (10,000+ molecules) with high accuracy (R² > 0.95).
-          </li>
-          <li>
-            Implemented feature selection using Lasso regression to identify the most impactful chemical descriptors and reduce model complexity.
-          </li>
-          <li>
-            Designed a modular pipeline to compare multiple machine learning models, including cross-validation, hyperparameter tuning, and performance metrics (RMSE, MAE, R²).
-          </li>
-          <li>
-            Collaborated with a research team to integrate predictive models into ongoing computational chemistry research, supporting accelerated analysis of new compounds.
-          </li>
-
-        </ul>
-      </section>
-
-      <section>
-        <h3>Personal & Academic Projects</h3>
-        <ul>
-          <li>
-            <strong>Hartree-Fock Solver</strong> — Python program for electronic energy
-            approximation and molecular orbital visualization. In collaboration with Dr. Jean Baptiste Tristan.
-          </li>
-          <li>
-            <strong>Computer Vision: Biomedical Application</strong> — Developed deep learning models (CNNs and RNNs) to analyze breast cancer tissue images and detect affected nuclei, enabling automated identification of tumor characteristics in TNBC (triple-negative breast cancer) research.
-          </li>
-          <li>
-            <strong>H₂ Potential Energy Surface</strong> — Collected quantum chemistry data using MOPAC to compute electronic energies at varying nuclear distances, then developed a Kernel Ridge Regression model with Gaussian Processes and Lennard-Jones force-fields to predict the PES. Applied automatic differentiation with PyTorch to identify ground-state energies.
-          </li>
-          <li>
-            <strong>TA Application System</strong> — Developed a Django-based web application for Boston College that streamlined the Teaching Assistant application process, implementing secure user authentication, application forms, and administrative review workflows.
-          </li>
-
-        </ul>
-      </section>
-    </section>
-
-    <section>
-      <h2>Technical Skills</h2>
-      <p>
-        React, TypeScript, Node.js, HTML/CSS, .NET, C#, Azure Functions, CosmosDB, Python, SQL, REST APIs,
-        Git, Azure Infrastructure
-      </p>
-    </section>
-
-    <section>
-    <h2>Recommendations</h2>
-      <div>
-           <a href="https://www.linkedin.com/in/ananya-barthakur1/details/recommendations/" target="_blank">
-            View Recommendations on LinkedIn
+        <h2>Recommendations</h2>
+        <p>
+          <a href="https://www.linkedin.com/in/ananya-barthakur1/details/recommendations/" target="_blank">
+            <i class="fab fa-linkedin"></i> View Professional Recommendations on LinkedIn
           </a>
+        </p>
+      </section>
+    </div>
+
+    <section class="contact-section">
+      <h2>Let's Connect</h2>
+      <div class="email-display">
+        <i class="fas fa-envelope"></i> ananyabarthakur1@gmail.com
       </div>
-  </section>
-
-    <section>
-  <h2>Contact</h2>
-      <p style="font-size: 0.9rem; color: #555; margin-top: 1rem;">
-    📬 Email: <a href="mailto:ananyabarthakur1@gmail.com">ananyabarthakur1@gmail.com</a>
-  </p>
-   <div>
-    <a href="mailto:ananyabarthakur1@gmail.com" class="contact-link">
-      <i class="fas fa-envelope"></i> Email
-    </a>
-    <a href="https://www.linkedin.com/in/ananya-barthakur1/" target="_blank" class="contact-link">
-      <i class="fab fa-linkedin"></i> LinkedIn
-    </a>
-    <a href="https://github.com/ananyabarthakur" target="_blank" class="contact-link">
-      <i class="fab fa-github"></i> GitHub
-    </a>
-  </div> 
-
-
-</section>
-
-
+      <div class="contact-links">
+        <a href="mailto:ananyabarthakur1@gmail.com" class="contact-link">
+          <i class="fas fa-envelope"></i> Email Me
+        </a>
+        <a href="https://www.linkedin.com/in/ananya-barthakur1/" target="_blank" class="contact-link">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+        <a href="https://github.com/ananyabarthakur" target="_blank" class="contact-link">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+      </div>
+    </section>
   </main>
 
   <footer>
-    &copy; 2025 Ananya Barthakur
+    &copy; 2025 Ananya Barthakur 
   </footer>
-  <script>
-    const sections = document.querySelectorAll('section');
 
-    const observer = new IntersectionObserver(entries => {
+  <script>
+    // Enhanced scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.style.transform = 'scale(1.03)';
           entry.target.style.opacity = '1';
-        } else {
-          entry.target.style.transform = 'scale(0.98)';
-          entry.target.style.opacity = '0.8';
+          entry.target.style.transform = 'translateY(0)';
         }
       });
-    }, {
-      threshold: 0.5
+    }, observerOptions);
+
+    // Observe all sections for animation
+    document.querySelectorAll('section, .project-highlight').forEach(section => {
+      section.style.opacity = '0';
+      section.style.transform = 'translateY(20px)';
+      section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(section);
     });
 
-    sections.forEach(section => {
-      observer.observe(section);
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
     });
   </script>
 </body>
